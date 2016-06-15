@@ -21,111 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="generate_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generate_data.py">
+      <file leaf-file-name="testing_rig.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/testing_rig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
-              <folding>
-                <element signature="e#294#1390#0" expanded="false" />
-                <element signature="e#1433#1567#0" expanded="false" />
-                <element signature="e#1696#2951#0" expanded="false" />
-                <element signature="e#3001#3141#0" expanded="false" />
-                <element signature="e#3261#4364#0" expanded="false" />
-                <element signature="e#4404#4535#0" expanded="false" />
-                <element signature="e#4569#5310#0" expanded="false" />
-                <element signature="e#6415#7462#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testing_rig.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_rig.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="178" column="12" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#100#1252#0" expanded="false" />
-                <element signature="e#1290#1494#0" expanded="false" />
-                <element signature="e#1541#2764#0" expanded="false" />
-                <element signature="e#2812#3080#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ionosphere.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/ionosphere.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#190#1342#0" expanded="false" />
+                <element signature="e#1380#1584#0" expanded="false" />
+                <element signature="e#1631#2854#0" expanded="false" />
+                <element signature="e#2902#3170#0" expanded="false" />
+                <element signature="e#5372#6531#0" expanded="false" />
+                <element signature="e#6558#6770#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="letter-recognition.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/letter-recognition.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="segmentation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/segmentation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vehicle_merged.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Vehicle_merged.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vehicle-merged.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Vehicle-merged.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="make_classification.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML/make_classification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="133" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,6 +70,9 @@
         <option value="$PROJECT_DIR$/ML/ClassificationData/Vehicle_merged.csv" />
         <option value="$PROJECT_DIR$/ML/ClassificationData/Vehicle-merged.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/ML/ClassificationData/ecoli.py" />
+        <option value="$PROJECT_DIR$/ML/ClassificationData/cleaned_Classification_ecoli.csv" />
+        <option value="$PROJECT_DIR$/ML/ClassificationData/testing_rig.py" />
       </list>
     </option>
   </component>
@@ -213,6 +125,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scratchpad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scratchpad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ML" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scratchpad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scratchpad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ML" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClassificationData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -222,6 +166,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -448,7 +393,7 @@
         <state relative-caret-position="1666">
           <caret line="178" column="12" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#100#1252#0" expanded="false" />
             <element signature="e#1290#1494#0" expanded="false" />
             <element signature="e#1541#2764#0" expanded="false" />
@@ -462,7 +407,7 @@
         <state relative-caret-position="119">
           <caret line="8" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -472,7 +417,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -623,23 +568,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CData/Classification_100_6_2_50.0.csv" />
-    <entry file="file://$PROJECT_DIR$/generate_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
-          <folding>
-            <element signature="e#294#1390#0" expanded="false" />
-            <element signature="e#1433#1567#0" expanded="false" />
-            <element signature="e#1696#2951#0" expanded="false" />
-            <element signature="e#3001#3141#0" expanded="false" />
-            <element signature="e#3261#4364#0" expanded="false" />
-            <element signature="e#4404#4535#0" expanded="false" />
-            <element signature="e#4569#5310#0" expanded="false" />
-            <element signature="e#6415#7462#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CData/Classification_100_8_2_10.0.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -661,40 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_rig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="178" column="12" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#100#1252#0" expanded="false" />
-            <element signature="e#1290#1494#0" expanded="false" />
-            <element signature="e#1541#2764#0" expanded="false" />
-            <element signature="e#2812#3080#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/ionosphere.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/letter-recognition.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ML/ClassificationData/testing_segmentation.py" />
     <entry file="file://$PROJECT_DIR$/ML/ClassificationData/soybean.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,18 +597,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/segmentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Vehicle_merged.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -727,11 +621,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/segmentation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+        <state relative-caret-position="272">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/letter-recognition.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/ionosphere.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generate_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
+          <folding>
+            <element signature="e#294#1390#0" expanded="false" />
+            <element signature="e#1433#1567#0" expanded="false" />
+            <element signature="e#1696#2951#0" expanded="false" />
+            <element signature="e#3001#3141#0" expanded="false" />
+            <element signature="e#3261#4364#0" expanded="false" />
+            <element signature="e#4404#4535#0" expanded="false" />
+            <element signature="e#4569#5310#0" expanded="false" />
+            <element signature="e#6415#7462#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_rig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="183" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="187" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#19#0" expanded="false" />
+            <element signature="e#100#1252#0" expanded="false" />
+            <element signature="e#1290#1494#0" expanded="false" />
+            <element signature="e#1541#2764#0" expanded="false" />
+            <element signature="e#2812#3080#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/cleaned_Classification_ecoli.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/ecoli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Classification_German.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Classification_Vehicle.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/Classification_ecoli.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="219" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML/ClassificationData/testing_rig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#190#1342#0" expanded="false" />
+            <element signature="e#1380#1584#0" expanded="false" />
+            <element signature="e#1631#2854#0" expanded="false" />
+            <element signature="e#2902#3170#0" expanded="false" />
+            <element signature="e#5372#6531#0" expanded="false" />
+            <element signature="e#6558#6770#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
