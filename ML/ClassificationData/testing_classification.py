@@ -56,18 +56,19 @@ def test_logistic_regression(filename):
     start_time = time.time()
     coeffs = []
     acc = []
+    confusion_matrices =[]
     from sklearn import datasets, linear_model
     df = pd.read_csv(filename)
-    h_indep = [d for d in df.columns if "A" in d]
-    h_dep = [d for d in df.columns if "A" not in d]
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
     for _ in xrange(10):
-        print "- ",
+        # print "- ",
         sys.stdout.flush()
-        msk = np.random.rand(len(df)) < 0.5
+        msk = np.random.rand(len(df)) < 0.4
         train_data = df[msk]
-        test_data = df[msk]
+        test_data = df[~msk]
 
-        assert (len(train_data) == len(test_data)), "Something is wrong"
+        assert (len(train_data)+len(test_data) == len(df)), "Something is wrong"
 
         train_indep = train_data[h_indep]
         train_dep = train_data[h_dep]
@@ -75,24 +76,33 @@ def test_logistic_regression(filename):
         test_indep = test_data[h_indep]
         test_dep = test_data[h_dep]
         logistic = linear_model.LogisticRegression()
-        logistic.fit(train_indep, [i[-1] for i in train_dep.values.tolist()])
+        logistic.fit(train_indep, [i for i in train_dep.values.tolist()])
         coeffs.append(logistic.coef_)
-        acc.append(logistic.score(X=test_indep, y=[i[-1] for i in test_dep.values.tolist()]))
+        prediction = logistic.predict(test_indep)
+
+        if len(set(test_dep)) > 2:
+            confusion_matrices.append([precision_score(test_dep, prediction, average='macro'),
+                                       recall_score(test_dep, prediction, average='macro')])
+        else:
+            confusion_matrices.append([precision_score(test_dep, prediction),
+                                       recall_score(test_dep, prediction)])
 
     extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    import pickle
-    pickle.dump(coeffs, open("./Results_Logistic_Regression/coeffs_" + extract_name, "wb"))
-    pickle.dump(acc, open("./Results_Logistic_Regression/rss_" + extract_name, "wb"))
-    print
-    print "Total Time: ", time.time() - start_time
+    precisions = [x[0] for x in confusion_matrices]
+    recalls = [x[1] for x in confusion_matrices]
+    # import pickle
+    # pickle.dump(coeffs, open("./Results_Logistic_Regression/coeffs_" + extract_name, "wb"))
+    # pickle.dump(acc, open("./Results_Logistic_Regression/rss_" + extract_name, "wb"))
+    # print
+    print round(np.mean(precisions), 3), round(np.mean(recalls), 3), round(time.time() - start_time, 3), "sec"
 
 
-def _test_logistic_regression(filename):
-    folder_name = "./CData/"
+def _test_logistic_regression():
+    folder_name = "."
     from os import listdir
-    files = sorted([folder_name + file for file in listdir(folder_name)])
+    files = sorted([file for file in listdir(folder_name) if "csv" in file])
     for file in files:
-        print file
+        print file,
         # file = "./CData/Classification_10000_32_2_50.0.csv"
         test_logistic_regression(file)
 
@@ -107,11 +117,11 @@ def test_random_forest_classification(filename):
     for _ in xrange(10):
             # print "- ",
             sys.stdout.flush()
-            msk = np.random.rand(len(df)) < 0.5
+            msk = np.random.rand(len(df)) < 0.4
             train_data = df[msk]
-            test_data = df[msk]
+            test_data = df[~msk]
 
-            assert (len(train_data) == len(test_data)), "Something is wrong"
+            assert (len(train_data) + len(test_data) == len(df)), "Something is wrong"
             train_indep = train_data[h_indep]
             train_dep = train_data[h_dep]
 
@@ -135,10 +145,9 @@ def test_random_forest_classification(filename):
     recalls = [x[1] for x in confusion_matrices]
 
     extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    import pickle
-    pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
+    # import pickle
+    # pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
     print round(np.mean(precisions), 3), round(np.mean(recalls), 3), round(time.time() - start_time, 3), "sec"
-
 
 
 def _test_random_forest_classification():
@@ -151,49 +160,62 @@ def _test_random_forest_classification():
         test_random_forest_classification(file)
 
 
-def test_kmeans(filename):
-    from sklearn.cluster import KMeans
-    stripped_down = filename.split("-")[-1].strip()
-    contents = stripped_down.split("_")
-    no_points = int(contents[1])
-    no_features = int(contents[3])
-    no_clusters = int(contents[5].split(".")[0])
-    confusion_matrices = []
+def test_decision_tree_classification(filename):
     start_time = time.time()
-
+    confusion_matrices = []
+    from sklearn.tree import DecisionTreeClassifier
     df = pd.read_csv(filename)
-    h_indep = [d for d in df.columns if "features" in d]
-    h_dep = [d for d in df.columns if "class" in d]
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
     for _ in xrange(10):
-        try:
-            print "- ",
+            # print "- ",
             sys.stdout.flush()
+            msk = np.random.rand(len(df)) < 0.4
+            train_data = df[msk]
+            test_data = df[~msk]
 
-            indep = df[h_indep]
-            dep = df[h_dep]
+            # print len(train_data), len(test_data)
+            assert (len(train_data) + len(test_data) == len(df)), "Something is wrong"
+            train_indep = train_data[h_indep]
+            train_dep = train_data[h_dep]
 
-            kmeans = KMeans(n_clusters =no_clusters)
-            kmeans.fit(indep)
-            prediction = kmeans.labels_
+            test_indep = test_data[h_indep]
+            test_dep = test_data[h_dep]
+            dt = DecisionTreeClassifier()
+            dt.fit(train_indep, [i for i in train_dep.values.tolist()])
+            prediction = dt.predict(test_indep)
             from sklearn.metrics import confusion_matrix
-            confusion_matrices.append(confusion_matrix(dep, prediction))
-        except:
-            import traceback
-            traceback.extract_stack()
+            # print confusion_matrix(test_dep, prediction)
+
+            if len(set(test_dep)) > 2:
+                confusion_matrices.append([precision_score(test_dep, prediction,average='macro'),
+                                       recall_score(test_dep, prediction, average='macro')])
+            else:
+                confusion_matrices.append([precision_score(test_dep, prediction),
+                                           recall_score(test_dep, prediction)])
+            # print len(confusion_matrices),
+
+    precisions = [x[0] for x in confusion_matrices]
+    recalls = [x[1] for x in confusion_matrices]
 
     extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    import pickle
-    pickle.dump(confusion_matrices, open("./Results_K_Means/Kmeans_" + extract_name, "wb"))
-    print " Total Time: ", time.time() - start_time
+    # import pickle
+    # pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
+    print round(np.mean(precisions), 3), round(np.mean(recalls), 3), round(time.time() - start_time, 3), "sec"
 
 
-def _test_kmeans():
+def _test_decision_tree_classification():
+    """ Storing the confusion Matrix for classification Tasks"""
     folder_name = "."
     from os import listdir
-    files = sorted([folder_name + file for file in listdir(folder_name) if ".csv" in file])
+    files = sorted([file for file in listdir(folder_name) if "csv" in file])
     for file in files:
-        print file, " : ",
-        test_kmeans(file)
+        print file,
+        test_decision_tree_classification(file)
+
 
 if __name__ == "__main__":
-    _test_random_forest_classification()
+    # _test_random_forest_classification()
+    _test_logistic_regression()
+    # _test_decision_tree_classification()
+
