@@ -11,16 +11,16 @@ def test_linear_regression(filename):
     rss = []
     from sklearn import datasets, linear_model
     df = pd.read_csv(filename)
-    h_indep = [d for d in df.columns if "A" in d]
-    h_dep = [d for d in df.columns if "A" not in d]
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
     for _ in xrange(10):
-        print "- ",
+        # print "- ",
         sys.stdout.flush()
-        msk = np.random.rand(len(df)) < 0.5
+        msk = np.random.rand(len(df)) < 0.4
         train_data = df[msk]
-        test_data = df[msk]
+        test_data = df[~msk]
 
-        assert(len(train_data) == len(test_data)), "Something is wrong"
+        assert(len(train_data) + len(test_data) == len(df)), "Something is wrong"
 
         train_indep = train_data[h_indep]
         train_dep = train_data[h_dep]
@@ -39,17 +39,107 @@ def test_linear_regression(filename):
     import pickle
     pickle.dump(coeffs, open("./Results_Linear_Regression/coeffs_" + extract_name, "wb"))
     pickle.dump(rss, open("./Results_Linear_Regression/rss_" + extract_name, "wb"))
-    print
-    print "Total Time: ", time.time() - start_time
+    # print
+    print round(np.mean(rss), 3), round(time.time() - start_time, 3)
 
 
 def _test_linear_regression():
-    folder_name = "./RData/"
+    folder_name = "."
     from os import listdir
-    files = sorted([folder_name + file for file in listdir(folder_name)])
+    files = sorted([file for file in listdir(folder_name) if ".csv" in file])
     for file in files:
-        print file
+        print file,
         test_linear_regression(file)
+
+
+def test_random_forest_regression(filename):
+    start_time = time.time()
+    scores = []
+    from sklearn.ensemble import RandomForestRegressor
+    df = pd.read_csv(filename)
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
+    for _ in xrange(10):
+            # print "- ",
+            sys.stdout.flush()
+            msk = np.random.rand(len(df)) < 0.4
+            train_data = df[msk]
+            test_data = df[~msk]
+
+            assert (len(train_data) + len(test_data) == len(df)), "Something is wrong"
+            train_indep = train_data[h_indep]
+            train_dep = train_data[h_dep]
+
+            test_indep = test_data[h_indep]
+            test_dep = test_data[h_dep]
+            rf = RandomForestRegressor(n_estimators=10)
+            rf.fit(train_indep, [i for i in train_dep.values.tolist()])
+            prediction = rf.predict(test_indep)
+            from sklearn.metrics import mean_absolute_error
+            # print confusion_matrix(test_dep, prediction)
+
+            scores.append(mean_absolute_error(test_dep, prediction))
+            # print len(confusion_matrices),
+
+    # extract_name = filename.split("/")[-1].split(".")[0] + ".p"
+    # import pickle
+    # pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
+    print round(np.mean(scores), 3), round(time.time() - start_time, 3), "sec"
+
+
+def _test_random_forest_regression():
+    """ Storing the confusion Matrix for classification Tasks"""
+    folder_name = "."
+    from os import listdir
+    files = sorted([file for file in listdir(folder_name) if "csv" in file])
+    for file in files:
+        print file,
+        test_random_forest_regression(file)
+
+
+def test_decision_tree_regression(filename):
+    start_time = time.time()
+    scores = []
+    from sklearn.tree import DecisionTreeRegressor
+    df = pd.read_csv(filename)
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
+    for _ in xrange(10):
+            # print "- ",
+            sys.stdout.flush()
+            msk = np.random.rand(len(df)) < 0.4
+            train_data = df[msk]
+            test_data = df[~msk]
+
+            # print len(train_data), len(test_data)
+            assert (len(train_data) + len(test_data) == len(df)), "Something is wrong"
+            train_indep = train_data[h_indep]
+            train_dep = train_data[h_dep]
+
+            test_indep = test_data[h_indep]
+            test_dep = test_data[h_dep]
+            dt = DecisionTreeRegressor()
+            dt.fit(train_indep, [i for i in train_dep.values.tolist()])
+            prediction = dt.predict(test_indep)
+            from sklearn.metrics import mean_absolute_error
+
+            scores.append(mean_absolute_error(test_dep, prediction))
+            # print len(confusion_matrices),
+
+    extract_name = filename.split("/")[-1].split(".")[0] + ".p"
+    # import pickle
+    # pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
+    print round(np.mean(scores), 3), round(time.time() - start_time, 3), "sec"
+
+
+def _test_decision_tree_regression():
+    """ Storing the confusion Matrix for classification Tasks"""
+    folder_name = "."
+    from os import listdir
+    files = sorted([file for file in listdir(folder_name) if "csv" in file])
+    for file in files:
+        print file,
+        test_decision_tree_regression(file)
 
 
 def test_logistic_regression(filename):
@@ -184,7 +274,7 @@ def test_decision_tree_classification(filename):
             dt = DecisionTreeClassifier()
             dt.fit(train_indep, [i for i in train_dep.values.tolist()])
             prediction = dt.predict(test_indep)
-            from sklearn.metrics import mean_absolute_error
+            from sklearn.metrics import confusion_matrix
             # print confusion_matrix(test_dep, prediction)
 
             if len(set(test_dep)) > 2:
@@ -215,7 +305,12 @@ def _test_decision_tree_classification():
 
 
 if __name__ == "__main__":
-    _test_random_forest_classification()
-    _test_logistic_regression()
-    _test_decision_tree_classification()
-
+    # _test_random_forest_classification()
+    # _test_logistic_regression()
+    # _test_decision_tree_classification()
+    print "LR "
+    _test_linear_regression()
+    print "RF "
+    _test_random_forest_regression()
+    print "DT "
+    _test_decision_tree_regression()
