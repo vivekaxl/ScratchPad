@@ -1,0 +1,22 @@
+Mean Absolute Error
+LR
+Abalone.csv 5.051 0.157
+friedman1.csv 8.968 0.036
+friedman2.csv 19569.613 0.036
+friedman3.csv 103.904 0.029
+housing.csv 24.467 0.036
+servo.csv 1.436 0.028
+RF 
+Abalone.csv 1.638 0.808 sec
+friedman1.csv 2.397 0.35 sec
+friedman2.csv 26.017 0.267 sec
+friedman3.csv 8.913 0.271 sec
+housing.csv 2.719 0.247 sec
+servo.csv 0.292 0.168 sec
+DT 
+Abalone.csv 2.094 0.139 sec
+friedman1.csv 3.171 0.06 sec
+friedman2.csv 39.828 0.04 sec
+friedman3.csv 11.786 0.044 sec
+housing.csv 3.401 0.044 sec
+servo.csv 0.302 0.025 sec
