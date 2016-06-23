@@ -96,51 +96,43 @@ def _test_logistic_regression(filename):
 
 
 def test_random_forest_classification(filename):
-    start_time = time.time()
-    confusion_matrices = []
+    # start_time = time.time()
+    accuracies = []
     from sklearn.ensemble import RandomForestClassifier
     df = pd.read_csv(filename)
-    h_indep = [d for d in df.columns if "A" in d]
-    h_dep = [d for d in df.columns if "A" not in d]
+    h_indep = df.columns[:-1]
+    h_dep = df.columns[-1]
     for _ in xrange(10):
-        try:
             print "- ",
             sys.stdout.flush()
-            msk = np.random.rand(len(df)) < 0.5
+            msk = np.random.rand(len(df)) < 0.4
             train_data = df[msk]
-            test_data = df[msk]
+            test_data = df[~msk]
 
-            assert (len(train_data) == len(test_data)), "Something is wrong"
+            assert (len(train_data) + len(test_data) == len(df)), "Something is wrong"
 
             train_indep = train_data[h_indep]
             train_dep = train_data[h_dep]
 
             test_indep = test_data[h_indep]
             test_dep = test_data[h_dep]
-            rf = RandomForestClassifier(n_estimators=100)
-            rf.fit(train_indep, [i[-1] for i in train_dep.values.tolist()])
+            rf = RandomForestClassifier(n_estimators=100,  max_features=min(7, len(train_indep.iloc[0])),  criterion='gini', max_depth=100)
+            rf.fit(train_indep, [i for i in train_dep.values.tolist()])
             prediction = rf.predict(test_indep)
-            from sklearn.metrics import confusion_matrix
-            confusion_matrices.append(confusion_matrix(test_dep, prediction))
-            print confusion_matrices[-1]
-        except:
-            import traceback
-            traceback.extract_stack()
+            from sklearn.metrics import accuracy_score
+            accuracies.append(accuracy_score(test_dep, prediction))
 
-    extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    import pickle
-    pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
-    print
-    print "Total Time: ", time.time() - start_time
+    return np.mean(accuracies)
+
 
 def _test_random_forest_classification():
     """ Storing the confusion Matrix for classification Tasks"""
-    folder_name = "./CData/"
+    folder_name = "./ML/ClassificationData/"
     from os import listdir
-    files = sorted([folder_name + file for file in listdir(folder_name) if "1000000" not in file])
+    files = sorted([folder_name + file for file in listdir(folder_name) if "csv" in file])
     for file in files:
-        print file
-        test_random_forest_classification(file)
+        print file, " : ",
+        print test_random_forest_classification(file)
 
 
 def test_kmeans(filename):
@@ -180,9 +172,9 @@ def test_kmeans(filename):
 
 
 if __name__ == "__main__":
-    folder_name = "./Cluster_Data/"
-    from os import listdir
-    files = sorted([folder_name + file for file in listdir(folder_name)])
-    for file in files:
-        print file, " : ",
-        test_kmeans(file)
+    _test_random_forest_classification()
+    # folder_name = "./Cluster_Data/"
+    # from os import listdir
+    # files = sorted([folder_name + file for file in listdir(folder_name)])
+
+

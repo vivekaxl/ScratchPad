@@ -1,8 +1,8 @@
 from os import listdir
 import pandas as pd
 
-result_folder = "./ECL_Classification/"
-folder_name = "./ClassificationData/"
+result_folder = "./ECL_Regression/"
+folder_name = "./RegressionData/"
 def convert2ecl(filename):
     content = ""
     line_break = "\n"
