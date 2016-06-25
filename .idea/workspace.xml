@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62e4e4c7-587f-4390-946c-b5cdbc38b17f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Generate_ECL_Code/ClassificationData/testing_classification.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_eight_c_six.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_fiveonetwo_c_two.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_four_c_four.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_sixteen_c_eight.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_thirty_two_c_eight.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_two_c_two.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/data/ionek_f_twofiftysix_c_eight.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_kmeans/test_kmeans.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generate_ECL_Code/RegressionData/testing_classification.py" afterPath="$PROJECT_DIR$/Generate_ECL_Code/RegressionData/testing_classification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generate_ECL_Code/csv_2_ecl.py" afterPath="$PROJECT_DIR$/Generate_ECL_Code/csv_2_ecl.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ML/ClassificationData/testing_classification.py" afterPath="$PROJECT_DIR$/ML/ClassificationData/testing_classification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ML/RegressionData/testing_classification.py" afterPath="$PROJECT_DIR$/ML/RegressionData/testing_classification.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing_rig.py" afterPath="$PROJECT_DIR$/testing_rig.py" />
-    </list>
+    <list default="true" id="62e4e4c7-587f-4390-946c-b5cdbc38b17f" name="Default" comment="" />
     <ignored path="Scratchpad.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
