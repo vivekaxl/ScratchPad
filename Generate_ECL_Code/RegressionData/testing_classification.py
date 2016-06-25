@@ -13,34 +13,15 @@ def test_linear_regression(filename):
     df = pd.read_csv(filename)
     h_indep = df.columns[:-1]
     h_dep = df.columns[-1]
-    for _ in xrange(10):
-        # print "- ",
-        sys.stdout.flush()
-        msk = np.random.rand(len(df)) < 0.4
-        train_data = df[msk]
-        test_data = df[~msk]
-
-        assert(len(train_data) + len(test_data) == len(df)), "Something is wrong"
-
-        train_indep = train_data[h_indep]
-        train_dep = train_data[h_dep]
-
-        test_indep = test_data[h_indep]
-        test_dep = test_data[h_dep]
+    for _ in xrange(1):
 
         regr = linear_model.LinearRegression()
-        regr.fit(train_indep, train_dep)
+        regr.fit(df[h_indep], df[h_dep])
+        print ['{:f}'.format(a) for a in regr.coef_]
 
-        coeffs.append(regr.coef_)
 
-        rss.append(np.mean((regr.predict(test_indep) - test_dep) ** 2))
 
-    extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    import pickle
-    pickle.dump(coeffs, open("./Results_Linear_Regression/coeffs_" + extract_name, "wb"))
-    pickle.dump(rss, open("./Results_Linear_Regression/rss_" + extract_name, "wb"))
-    # print
-    print round(np.mean(rss), 3), round(time.time() - start_time, 3)
+
 
 
 def _test_linear_regression():
@@ -310,7 +291,7 @@ if __name__ == "__main__":
     # _test_decision_tree_classification()
     print "LR "
     _test_linear_regression()
-    print "RF "
-    _test_random_forest_regression()
-    print "DT "
-    _test_decision_tree_regression()
+    # print "RF "
+    # _test_random_forest_regression()
+    # print "DT "
+    # _test_decision_tree_regression()

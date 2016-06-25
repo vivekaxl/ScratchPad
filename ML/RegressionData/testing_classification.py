@@ -307,10 +307,10 @@ def _test_decision_tree_classification():
 if __name__ == "__main__":
     # _test_random_forest_classification()
     # _test_logistic_regression()
-    # _test_decision_tree_classification()
-    print "LR "
-    _test_linear_regression()
-    print "RF "
-    _test_random_forest_regression()
-    print "DT "
-    _test_decision_tree_regression()
+    _test_decision_tree_classification()
+    # print "LR "
+    # _test_linear_regression()
+    # print "RF "
+    # _test_random_forest_regression()
+    # print "DT "
+    # _test_decision_tree_regression()

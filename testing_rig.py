@@ -136,12 +136,10 @@ def _test_random_forest_classification():
 
 
 def test_kmeans(filename):
+    stripped_name = filename.split("/")[-1].split(".")[0]
     from sklearn.cluster import KMeans
-    stripped_down = filename.split("-")[-1].strip()
-    contents = stripped_down.split("_")
-    no_points = int(contents[1])
-    no_features = int(contents[3])
-    no_clusters = int(contents[5].split(".")[0])
+    contents = stripped_name.split("_")
+    no_clusters = int(contents[4].split(".")[0])
     confusion_matrices = []
     start_time = time.time()
 
@@ -158,21 +156,31 @@ def test_kmeans(filename):
 
             kmeans = KMeans(n_clusters =no_clusters)
             kmeans.fit(indep)
-            prediction = kmeans.labels_
-            from sklearn.metrics import confusion_matrix
-            confusion_matrices.append(confusion_matrix(dep, prediction))
+            print kmeans.inertia_
+            import pdb
+            pdb.set_trace()
         except:
             import traceback
             traceback.extract_stack()
 
-    extract_name = filename.split("/")[-1].split(".")[0] + ".p"
+
     import pickle
     pickle.dump(confusion_matrices, open("./Results_K_Means/Kmeans_" + extract_name, "wb"))
     print " Total Time: ", time.time() - start_time
 
 
+def _test_kmeans():
+    folder_name = "./ML/ClusteringData/"
+    from os import listdir
+
+    files = sorted([folder_name + file for file in listdir(folder_name) if "csv" in file])
+    for file in files:
+        print file, " : ",
+        print test_kmeans(file)
+
 if __name__ == "__main__":
-    _test_random_forest_classification()
+    _test_kmeans()
+    # _test_random_forest_classification()
     # folder_name = "./Cluster_Data/"
     # from os import listdir
     # files = sorted([folder_name + file for file in listdir(folder_name)])

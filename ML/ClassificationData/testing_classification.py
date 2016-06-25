@@ -162,7 +162,7 @@ def _test_random_forest_classification():
 
 def test_decision_tree_classification(filename):
     start_time = time.time()
-    confusion_matrices = []
+    accuracy = []
     from sklearn.tree import DecisionTreeClassifier
     df = pd.read_csv(filename)
     h_indep = df.columns[:-1]
@@ -184,24 +184,17 @@ def test_decision_tree_classification(filename):
             dt = DecisionTreeClassifier()
             dt.fit(train_indep, [i for i in train_dep.values.tolist()])
             prediction = dt.predict(test_indep)
-            from sklearn.metrics import mean_absolute_error
+            from sklearn.metrics import accuracy_score
             # print confusion_matrix(test_dep, prediction)
 
             if len(set(test_dep)) > 2:
-                confusion_matrices.append([precision_score(test_dep, prediction,average='macro'),
-                                       recall_score(test_dep, prediction, average='macro')])
+                accuracy.append(accuracy_score(test_dep, prediction))
             else:
-                confusion_matrices.append([precision_score(test_dep, prediction),
-                                           recall_score(test_dep, prediction)])
+                accuracy.append(accuracy_score(test_dep, prediction))
+                # print len(confusion_matrices),
             # print len(confusion_matrices),
 
-    precisions = [x[0] for x in confusion_matrices]
-    recalls = [x[1] for x in confusion_matrices]
-
-    extract_name = filename.split("/")[-1].split(".")[0] + ".p"
-    # import pickle
-    # pickle.dump(confusion_matrices, open("./Results_RF_Classification/CM_" + extract_name, "wb"))
-    print round(np.mean(precisions), 3), round(np.mean(recalls), 3), round(time.time() - start_time, 3), "sec"
+    print round(np.mean(accuracy), 3)
 
 
 def _test_decision_tree_classification():
@@ -215,7 +208,7 @@ def _test_decision_tree_classification():
 
 
 if __name__ == "__main__":
-    _test_random_forest_classification()
-    _test_logistic_regression()
+    # _test_random_forest_classification()
+    # _test_logistic_regression()
     _test_decision_tree_classification()
 
